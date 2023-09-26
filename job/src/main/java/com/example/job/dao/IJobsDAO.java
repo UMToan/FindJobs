@@ -14,4 +14,6 @@ public interface IJobsDAO extends GernericDAO<JobsModel>{
     void update(Long jobsID,JobsModel jobsModel);
 
     JobsModel search(String jobsTitle);
+
+    List<JobsModel> filterAreaJobs(Long locationID);
 }

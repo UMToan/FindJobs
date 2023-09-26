@@ -3,17 +3,16 @@ package com.example.job.model;
 import java.util.Date;
 
 public class ResumeModel extends AbstractModel<ResumeModel>{
-    private Long resumeID;
     private Long accountID;
     private String name;
     private String mail;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String phoneNumber;
     private String address;
     private String university;
     private String major;
     private String description;
-    private Date graduationYear;
+    private String graduationYear;
     private String skills;
     private String experience;
     private String certificate;
@@ -26,11 +25,11 @@ public class ResumeModel extends AbstractModel<ResumeModel>{
         this.mail = mail;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -74,11 +73,11 @@ public class ResumeModel extends AbstractModel<ResumeModel>{
         this.description = description;
     }
 
-    public Date getGraduationYear() {
+    public String getGraduationYear() {
         return graduationYear;
     }
 
-    public void setGraduationYear(Date graduationYear) {
+    public void setGraduationYear(String graduationYear) {
         this.graduationYear = graduationYear;
     }
 
@@ -106,13 +105,6 @@ public class ResumeModel extends AbstractModel<ResumeModel>{
         this.certificate = certificate;
     }
 
-    public Long getResumeID() {
-        return resumeID;
-    }
-
-    public void setResumeID(Long resumeID) {
-        this.resumeID = resumeID;
-    }
 
     public Long getAccountID() {
         return accountID;

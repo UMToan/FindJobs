@@ -14,4 +14,6 @@ public interface IAreaService {
     List<AreaModel> findAll();
 
     AreaModel findOne(Long locationID );
+
+
 }

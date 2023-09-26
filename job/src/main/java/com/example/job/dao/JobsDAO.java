@@ -52,5 +52,11 @@ public class JobsDAO extends AbstractDAO<JobsModel> implements IJobsDAO{
         return jobs.isEmpty() ? null : jobs.get(0);
     }
 
-
+    @Override
+    public List<JobsModel> filterAreaJobs(Long locationID) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM jobs AS j");
+        sql.append(" INNER JOIN area AS a ON a.id = j.areaID");
+        sql.append(" WHERE a.id = ?");
+        return query(sql.toString(), new JobsMapper(), locationID);
+    }
 }

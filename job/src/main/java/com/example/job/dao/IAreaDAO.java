@@ -15,4 +15,6 @@ public interface IAreaDAO extends GernericDAO<AreaModel> {
     void update(Long locationID,AreaModel areaModel);
 
     void delete(long id);
+
+
 }

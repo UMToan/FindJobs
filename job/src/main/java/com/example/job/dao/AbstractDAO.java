@@ -34,6 +34,8 @@ public class AbstractDAO<T> implements GernericDAO<T> {
                     statement.setInt(index, (Integer) parameter);
                 } else if (parameter instanceof Timestamp) {
                     statement.setTimestamp(index, (Timestamp) parameter);
+                } else if (parameter instanceof Date) {
+                    statement.setDate(index, (Date) parameter);
                 }
             }
         } catch (SQLException e) {

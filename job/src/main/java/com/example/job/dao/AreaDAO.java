@@ -1,8 +1,10 @@
 package com.example.job.dao;
 
+import com.example.job.mapper.AccountMapper;
 import com.example.job.mapper.AreaMapper;
 import com.example.job.mapper.RowMapper;
 import com.example.job.model.AbstractModel;
+import com.example.job.model.AccountModel;
 import com.example.job.model.AreaModel;
 
 import java.util.List;
@@ -44,4 +46,6 @@ public class AreaDAO extends AbstractDAO<AreaModel> implements IAreaDAO{
         String sql = "DELETE FROM area WHERE id = ?";
         Delete(sql, id);
     }
+
+
 }

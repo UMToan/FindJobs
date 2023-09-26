@@ -50,8 +50,6 @@ public class AreaController extends HttpServlet {
             AreaModel updateModel =  mapper.readValue(req.getReader(), AreaModel.class);
             areaService.update(locationID,updateModel);
             resp.setStatus(HttpServletResponse.SC_CREATED);
-
-
         }
 
     }

@@ -1,6 +1,7 @@
 package com.example.job.service;
 
 import com.example.job.dao.JobsDAO;
+import com.example.job.model.AreaModel;
 import com.example.job.model.JobsModel;
 
 import java.sql.Timestamp;
@@ -52,5 +53,9 @@ public class JobsService implements IJobsService{
         return jobsDAO.search(jobsTitle);
     }
 
+    @Override
+    public List<JobsModel> filterAreaJobs(Long locationID) {
+        return jobsDAO.filterAreaJobs(locationID);
+    }
 
 }

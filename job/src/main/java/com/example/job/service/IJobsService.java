@@ -15,4 +15,6 @@ public interface IJobsService {
     void update(Long jobsID,JobsModel jobsModel);
 
     JobsModel search(String jobsTitle);
+
+    List<JobsModel> filterAreaJobs(Long locationID);
 }
