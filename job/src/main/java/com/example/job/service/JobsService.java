@@ -21,10 +21,11 @@ public class JobsService implements IJobsService{
     }
 
     @Override
-    public JobsModel save(JobsModel jobsModel) {
+    public Long save(JobsModel jobsModel) {
         jobsModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
         Long jobsID = jobsDAO.save(jobsModel);
-        return jobsDAO.findOne(jobsID);
+        System.out.println(jobsID);
+        return jobsID;
     }
 
     @Override
@@ -45,7 +46,13 @@ public class JobsService implements IJobsService{
         jobsModel.setCreatedBy(jobsModel.getCreatedBy());
         jobsModel.setModifiedDate(new Timestamp(System.currentTimeMillis()));
         jobsModel.setModifiedBy("");
+        jobsModel.setStatus(jobsModel.getStatus());
         jobsDAO.update(jobsID, jobsModel);
+    }
+
+    @Override
+    public void updateByStatus(Long jobsID, int so) {
+        jobsDAO.updateByStatus(jobsID, so);
     }
 
     @Override

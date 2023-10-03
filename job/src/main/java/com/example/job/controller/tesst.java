@@ -1,13 +1,7 @@
 package com.example.job.controller;
 
-import com.example.job.dao.AccountDAO;
-import com.example.job.dao.AreaDAO;
-import com.example.job.dao.JobsDAO;
-import com.example.job.dao.ResumeDAO;
-import com.example.job.model.AccountModel;
-import com.example.job.model.AreaModel;
-import com.example.job.model.JobsModel;
-import com.example.job.model.ResumeModel;
+import com.example.job.dao.*;
+import com.example.job.model.*;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -21,8 +15,15 @@ public class tesst {
 //        JobsDAO dao = new JobsDAO();
 //        JobsModel job = dao.search("text3");
 //        System.out.println(job);
-        AccountDAO dao = new AccountDAO();
-        AccountModel acc = dao.findAccount("minhtoan", "123");
-        System.out.println(acc);
+//        AccountDAO dao = new AccountDAO();
+//        List<AccountModel> acc = dao.findAll();
+//        System.out.println(acc);
+//        AccountModel acc = dao.findAccount("minhtoan", "123");
+//        System.out.println(acc.toString());
+//        ApplicantDAO dao = new ApplicantDAO();
+//        Long job = 1L;
+//        Long re = 1L;
+//        ApplicantModel a = dao.save(job,re);
+//        System.out.println(a);
     }
 }

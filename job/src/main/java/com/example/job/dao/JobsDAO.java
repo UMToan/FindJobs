@@ -46,6 +46,12 @@ public class JobsDAO extends AbstractDAO<JobsModel> implements IJobsDAO{
     }
 
     @Override
+    public void updateByStatus(Long jobsID, int so) {
+        String sql = "UPDATE jobs SET status = ? WHERE id = ?";
+        Update(sql, so, jobsID);
+    }
+
+    @Override
     public JobsModel search(String jobsTitle) {
         String sql = "SELECT * FROM jobs WHERE jobsTitle = ?";
         List<JobsModel> jobs = query(sql, new JobsMapper(), jobsTitle);

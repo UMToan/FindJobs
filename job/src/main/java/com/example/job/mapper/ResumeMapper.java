@@ -10,6 +10,7 @@ public class ResumeMapper implements RowMapper<ResumeModel>{
     public ResumeModel mapRow(ResultSet rs){
         try{
             ResumeModel resume = new ResumeModel();
+            resume.setId(rs.getLong("id"));
             resume.setAccountID(rs.getLong("accountID"));
             resume.setName(rs.getString("name"));
             resume.setMail(rs.getString("mail"));

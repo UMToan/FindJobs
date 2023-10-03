@@ -7,33 +7,34 @@ import com.example.job.model.RoleModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AccountMapper implements RowMapper<AccountModel>{
+public class AccountMapper implements RowMapper<AccountModel> {
     @Override
     public AccountModel mapRow(ResultSet rs) {
-        try{
-            AccountModel acc = new AccountModel();
+        AccountModel acc = new AccountModel();
+        try {
+
             acc.setId(rs.getLong("id"));
             acc.setUserName(rs.getString("userName"));
             acc.setPassword(rs.getString("password"));
             acc.setFullName(rs.getString("fullName"));
             acc.setStatus(rs.getInt("status"));
-            acc.setRoleID(rs.getLong("roleID"));
+            acc.setRoleId(rs.getLong("roleId"));
             acc.setCreatedDate(rs.getTimestamp("createdDate"));
             acc.setCreatedBy(rs.getString("createdBy"));
-            if(rs.getTimestamp("modifiedDate") != null){
+            if (rs.getTimestamp("modifiedDate") != null) {
                 acc.setModifiedDate(rs.getTimestamp("modifiedDate"));
             }
-            if(rs.getString("modifiedBy") != null){
+            if (rs.getString("modifiedBy") != null) {
                 acc.setModifiedBy(rs.getString("modifiedBy"));
             }
-            RoleModel role = new RoleModel();
-            role.setName(rs.getString("name"));
-            role.setCode(rs.getString("code"));
-            acc.setRole(role);
-            return acc;
-        } catch (SQLException e){
-            return null;
+//            RoleModel role = new RoleModel();
+//            role.setName(rs.getString("name"));
+//            role.setCode(rs.getString("code"));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return acc;
 
     }
 }

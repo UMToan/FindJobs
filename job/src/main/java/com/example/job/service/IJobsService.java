@@ -10,9 +10,11 @@ public interface IJobsService {
 
     JobsModel findOne(Long jobsID);
 
-    JobsModel save(JobsModel jobsModel);
+    Long save(JobsModel jobsModel);
 
     void update(Long jobsID,JobsModel jobsModel);
+
+    void updateByStatus(Long jobsID, int so);
 
     JobsModel search(String jobsTitle);
 

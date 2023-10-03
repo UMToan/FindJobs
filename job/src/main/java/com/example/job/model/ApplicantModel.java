@@ -1,20 +1,13 @@
 package com.example.job.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class ApplicantModel extends AbstractModel<ApplicantModel>{
-    private Long applicantID;
     private Long jobsID;
     private Long resumeID;
-    private Date applicantsDate;
+    private Timestamp applicantsDate;
 
-    public Long getApplicantID() {
-        return applicantID;
-    }
-
-    public void setApplicantID(Long applicantID) {
-        this.applicantID = applicantID;
-    }
 
     public Long getJobsID() {
         return jobsID;
@@ -32,11 +25,11 @@ public class ApplicantModel extends AbstractModel<ApplicantModel>{
         this.resumeID = resumeID;
     }
 
-    public Date getApplicantsDate() {
+    public Timestamp getApplicantsDate() {
         return applicantsDate;
     }
 
-    public void setApplicantsDate(Date applicantsDate) {
+    public void setApplicantsDate(Timestamp applicantsDate) {
         this.applicantsDate = applicantsDate;
     }
 }

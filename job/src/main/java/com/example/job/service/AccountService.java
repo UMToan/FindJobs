@@ -4,6 +4,7 @@ import com.example.job.dao.AccountDAO;
 import com.example.job.model.AccountModel;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class AccountService implements IAccountService{
 
@@ -17,6 +18,11 @@ public class AccountService implements IAccountService{
         else{
             return accountDAO.findAccount(userName, password);
         }
+    }
+
+    @Override
+    public List<AccountModel> findAll() {
+        return accountDAO.findAll();
     }
 
 }

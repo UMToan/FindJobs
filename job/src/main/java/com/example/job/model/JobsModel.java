@@ -13,7 +13,15 @@ public class JobsModel extends AbstractModel<JobsModel>{
     private String salary;
     private String jobsType;
     private String jobsSkill;
+    private int status;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public Long getAreaID() {
         return areaID;

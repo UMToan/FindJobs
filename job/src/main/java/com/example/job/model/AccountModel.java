@@ -4,9 +4,8 @@ public class AccountModel extends AbstractModel<AccountModel>{
     private String userName;
     private String password;
     private String fullName;
-
     private int status;
-    private Long roleID;
+    private Long roleId;
     private RoleModel role = new RoleModel();
 
     public RoleModel getRole() {
@@ -49,11 +48,23 @@ public class AccountModel extends AbstractModel<AccountModel>{
         this.fullName = fullName;
     }
 
-    public Long getRoleID() {
-        return roleID;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setRoleID(Long roleID) {
-        this.roleID = roleID;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    @Override
+    public String toString() {
+        return "AccountModel{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", status=" + status +
+                ", roleId=" + roleId +
+                ", role=" + role +
+                '}';
     }
 }

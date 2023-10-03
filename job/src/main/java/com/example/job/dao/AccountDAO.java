@@ -12,8 +12,16 @@ public class AccountDAO extends AbstractDAO<AccountModel> implements IAccountDAO
     public AccountModel findAccount(String userName, String password) {
         StringBuilder sql = new StringBuilder("SELECT * FROM account AS u");
         sql.append(" INNER JOIN role AS r ON r.id = u.roleId");
-        sql.append(" WHERE userName = ? AND password = ?");
+        sql.append(" WHERE u.userName = ? AND u.password = ?");
         List<AccountModel> acc = query(sql.toString(), new AccountMapper(), userName, password);
         return acc.isEmpty() ? null : acc.get(0);
     }
+
+    @Override
+    public List<AccountModel> findAll() {
+        String sql = "SELECT * FROM account";
+        return query(sql, new AccountMapper());
+    }
+
+
 }

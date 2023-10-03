@@ -11,7 +11,7 @@ public class AbstractDAO<T> implements GernericDAO<T> {
     public Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://127.0.0.1:3306/findjob";
+            String url = "jdbc:mysql://127.0.0.1:3306/job";
             String userName = "root";
             String password = "Minhtoan080102";
             return DriverManager.getConnection(url, userName, password);
@@ -80,19 +80,25 @@ public class AbstractDAO<T> implements GernericDAO<T> {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
+        int rows = 0;
         try {
             Long id = null;
             connection = getConnection();
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             setParameter(statement, parameters);
-            statement.executeUpdate();
-            resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                id = resultSet.getLong(1);
-            }
+            rows = statement.executeUpdate();
             connection.commit();
-            return id;
+            if(rows==0)
+                throw new SQLException("Fail");
+            try(ResultSet generatedKeys  = statement.getGeneratedKeys()){
+                if (generatedKeys.next()) {
+                    return generatedKeys.getLong(1);
+                }
+                else {
+                    throw new SQLException("Creating user failed, no ID obtained.");
+                }
+            }
         } catch (SQLException e) {
             if (connection != null) {
                 try {

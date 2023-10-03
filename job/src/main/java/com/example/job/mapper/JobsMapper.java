@@ -31,6 +31,7 @@ public class JobsMapper implements RowMapper<JobsModel>{
             if(rs.getString("modifiedBy") != null){
                 jobs.setModifiedBy(rs.getString("modifiedBy"));
             }
+            jobs.setStatus(rs.getInt("status"));
             return jobs;
         }catch (SQLException e){
             return null;
